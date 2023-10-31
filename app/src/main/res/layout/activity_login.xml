@@ -22,7 +22,7 @@
                 android:layout_marginTop="20dp"
                 android:src="@drawable/back"
                 android:padding="5dp"
-                android:id="@+id/img_LoginBack">
+                android:id="@+id/img_loginBack">
             </ImageView>
 
             <ImageView
@@ -43,7 +43,6 @@
             android:text="Login"
             android:textColor="#4081FE"
             android:textSize="30dp"
-            android:id="@+id/txt_Login"
             android:layout_gravity="center_horizontal">
         </TextView>
     </LinearLayout>
@@ -65,8 +64,7 @@
             android:textColor="@color/black"
             android:fontFamily="@font/poppinsregular"
             android:textSize="13dp"
-            android:textStyle="bold"
-            android:id="@+id/txt_Email">
+            android:textStyle="bold">
         </TextView>
 
         <EditText
@@ -78,7 +76,7 @@
             android:padding="10dp"
             android:textSize="13dp"
             android:fontFamily="@font/poppinsregular"
-            android:id="@+id/edt_Email">
+            android:id="@+id/edt_loginEmail">
         </EditText>
 
         <TextView
@@ -89,8 +87,7 @@
             android:text="Password"
             android:fontFamily="@font/poppinsregular"
             android:textSize="13dp"
-            android:textStyle="bold"
-            android:id="@+id/txt_Password">
+            android:textStyle="bold">
         </TextView>
 
         <RelativeLayout
@@ -107,13 +104,13 @@
                 android:padding="10dp"
                 android:textSize="13dp"
                 android:fontFamily="@font/poppinsregular"
-                android:id="@+id/edt_Password">
+                android:id="@+id/edt_loginPassword">
             </EditText>
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignEnd="@id/edt_Password"
+                android:layout_alignEnd="@id/edt_loginPassword"
                 android:src="@drawable/invisible"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="20dp">
@@ -132,7 +129,6 @@
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 android:fontFamily="@font/poppinsregular"
                 android:text="Forgot password?"
                 android:textSize="13dp"
@@ -144,14 +140,14 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_Login_activity_Login"
+        android:id="@+id/btn_loginLogIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/LinearLayout_Sign_up"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-10dp"
-        android:width="410dp"
+        android:width="250dp"
         android:height="45dp"
+        android:layout_marginTop="-10dp"
         android:background="@drawable/button_shape"
         android:fontFamily="@font/poppinsregular"
         android:text="Login"
@@ -166,12 +162,12 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/btn_Login_activity_Login"
+        android:layout_below="@+id/btn_loginLogIn"
         android:text="Or Login with"
         android:fontFamily="@font/poppinsregular"
         android:textSize="13dp"
         android:textStyle="bold"
-        android:id="@+id/txt_Or_Register_with">
+        android:id="@+id/txt_orLogin">
     </TextView>
 
     <LinearLayout
@@ -179,9 +175,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
-        android:layout_below="@id/txt_Or_Register_with"
-        android:padding="15dp"
-        android:id="@+id/Linear_Or_Register_with">
+        android:layout_below="@id/txt_orLogin"
+        android:padding="15dp">
 
         <ImageButton
             android:layout_width="100dp"
@@ -246,7 +241,6 @@
             android:textColor="#4081FE"
             android:textSize="13dp"
             android:textStyle="bold"></TextView>
-
     </LinearLayout>
 
 </RelativeLayout>

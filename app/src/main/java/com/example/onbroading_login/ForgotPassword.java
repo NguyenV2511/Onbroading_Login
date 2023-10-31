@@ -15,8 +15,17 @@ public class ForgotPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgotpassword);
 
-        ImageView backLoginFromForgotPassword = findViewById(R.id.img_ForgotPasswordBack);
+        ImageView backLoginFromForgotPassword = findViewById(R.id.img_forgotpasswordBack);
         backLoginFromForgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ForgotPassword.this, LoginActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        TextView SignUptoLogin = findViewById(R.id.txt_toLogin);
+        SignUptoLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ForgotPassword.this, LoginActivity.class);

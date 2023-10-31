@@ -40,7 +40,7 @@
     </TextView>
 
     <TextView
-        android:id="@+id/txt_Slogan"
+        android:id="@+id/txt_onboardingSlogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_App_name"
@@ -53,10 +53,10 @@
         android:textSize="15dp"></TextView>
 
     <Button
-        android:id="@+id/btn_Login"
+        android:id="@+id/btn_onboardingLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txt_Slogan"
+        android:layout_below="@id/txt_onboardingSlogan"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="120dp"
         android:width="380dp"
@@ -71,10 +71,10 @@
     </Button>
 
     <Button
-        android:id="@+id/btn_Create_acc"
+        android:id="@+id/btn_onboardingCreateAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btn_Login"
+        android:layout_below="@id/btn_onboardingLogin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:width="380dp"

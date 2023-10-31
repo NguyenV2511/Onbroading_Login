@@ -34,7 +34,4 @@
         android:textSize="13dp">
     </EditText>
 
-    <TextView>
-        
-    </TextView>
 </RelativeLayout>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "307179972221",
+    "firebase_url": "https://onbroading-login-default-rtdb.firebaseio.com",
+    "project_id": "onbroading-login",
+    "storage_bucket": "onbroading-login.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:307179972221:android:e1a8f75561e79681f3b314",
+        "android_client_info": {
+          "package_name": "com.example.onbroading_login"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2hvFix56byaeJ7YB_FObRLIRLKY_RNI8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
