@@ -137,8 +137,8 @@ public class SignUpActivity extends AppCompatActivity {
                 String email = editTextSignUpEmail.getText().toString();
                 String password = editTextSignUpPassWord.getText().toString();
                 String confirmpassword = editTextSignUpConfirmPassword.getText().toString();
-                HelperClass helperClass = new HelperClass(username, email, password, confirmpassword);
-                reference.child(username).setValue(helperClass);
+                //HelperClass helperClass = new HelperClass(username, email, password, confirmpassword);
+               // reference.child(username).setValue(helperClass);
 
                 Toast.makeText(SignUpActivity.this, "You have signup successfully!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);

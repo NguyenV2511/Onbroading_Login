@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText editTextLogInEmail, editTextLogInPassWord;
@@ -46,44 +52,37 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public void checkUser() {
-        final String loginEmail = editTextLogInEmail.getText().toString().trim();
-        final String loginPassword = editTextLogInPassWord.getText().toString().trim();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
-        Query checkUserDatabase = reference.orderByChild("email").equalTo(loginEmail);
-        checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+    private void login() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://uiot.ixxc.dev/auth/realms/master/protocol/openid-connect/") // Replace with the base URL of your API
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        API_Interface authService = retrofit.create(API_Interface.class);
+        String username = editTextLogInEmail.getText().toString();
+        String password = editTextLogInPassWord.getText().toString();
+        Call<HelperClass> call = authService.login("openremote",username,password,"password");
+        call.enqueue(new Callback<HelperClass>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-
-                    DataSnapshot userSnapshot = snapshot.getChildren().iterator().next();
-                    String passwordFromDB = userSnapshot.child("password").getValue(String.class);
-
-                    if (passwordFromDB != null && passwordFromDB.equals(loginPassword)) {
-                        editTextLogInEmail.setError(null);
-
-                        Intent intent = new Intent(LoginActivity.this, MainPageActivity.class);
-                        intent.putExtra("email", loginEmail);
-                        intent.putExtra("password", loginPassword);
-                        startActivity(intent);
-                    } else {
-                        editTextLogInPassWord.setError("Wrong password");
-                        editTextLogInPassWord.requestFocus();
-                    }
-                } else {
-                    editTextLogInEmail.setError("User does not exist or email name is wrong");
-                    editTextLogInEmail.requestFocus();
+            public void onResponse(Call<HelperClass> call, Response<HelperClass> response) {
+                if (response.isSuccessful()) {
+                    HelperClass loginResponse = response.body();
+                    String accessToken = loginResponse.getAccess_token();
+                    Log.d("token",accessToken);
+                    Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    // Authentication failed
+                    Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                 }
             }
-
             @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Xử lý lỗi nếu cần
+            public void onFailure(Call<HelperClass> call, Throwable t) {
+                // Handle network or API errors
+                Log.d("API CALL", t.getMessage().toString());
+                Toast.makeText(LoginActivity.this, "Login Failed: " + t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,43 +90,31 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         ImageView backHomeFromLogin = findViewById(R.id.img_loginBack);
-        backHomeFromLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+        backHomeFromLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
         });
 
         TextView SignUptoLogin = findViewById(R.id.txt_toSignUp);
-        SignUptoLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
-                startActivity(intent);
-            }
+        SignUptoLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+            startActivity(intent);
         });
 
         TextView LogintoForgotPassword = findViewById(R.id.txt_toForgotPassword);
-        LogintoForgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
-                startActivity(intent);
-            }
+        LogintoForgotPassword.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, ForgotPassword.class);
+            startActivity(intent);
         });
 
         editTextLogInEmail = findViewById(R.id.edt_loginEmail);
         editTextLogInPassWord = findViewById(R.id.edt_loginPassword);
         buttonLogInLogIn = findViewById(R.id.btn_loginLogIn);
-        buttonLogInLogIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (!validateEmail() | !validatePassWord()) {
-                    return;
-                } else {
-                    checkUser();
-                }
+        buttonLogInLogIn.setOnClickListener(view -> {
+            if (!validateEmail() | !validatePassWord() ) {
+            }
+            else {
+                login();
             }
         });
     }

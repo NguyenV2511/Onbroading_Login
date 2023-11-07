@@ -1,44 +1,29 @@
 package com.example.onbroading_login;
 
 public class HelperClass {
-    String username, email, password, confirmpassword;
+    private String access_token;
+    private String refresh_token;
+    private int expires_in;
+    private int refresh_expires_in;
 
-    public HelperClass(String username, String email, String password, String confirmpassword) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.confirmpassword = confirmpassword;
+
+    public int getExpires_in() {
+        return expires_in;
     }
 
-    public String getUsername() {
-        return username;
+    public String getRefresh_token() {
+        return refresh_token;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public String getAccess_token() {
+        return access_token;
     }
 
-    public String getEmail() {
-        return email;
+    public void setAccess_token(String access_token) {
+        this.access_token = access_token;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getConfirmpassword() {
-        return confirmpassword;
-    }
-
-    public void setConfirmpassword(String confirmpassword) {
-        this.confirmpassword = confirmpassword;
+    public void setRefresh_token(String refresh_token) {
+        this.refresh_token = refresh_token;
     }
 }
