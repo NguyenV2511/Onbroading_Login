@@ -60,61 +60,63 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email"
-            android:textColor="@color/black"
             android:fontFamily="@font/poppinsregular"
+            android:text="Email or User"
+            android:textColor="@color/primaryColor"
             android:textSize="13dp"
-            android:textStyle="bold">
-        </TextView>
+            android:textStyle="bold"
+            tools:ignore="TextSizeCheck"></TextView>
 
         <EditText
+            android:id="@+id/edt_loginEmail"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="48dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/edit_text_shape"
-            android:hint="example@gmail.com"
+            android:fontFamily="@font/poppinsregular"
+            android:hint="example@gmail.com or user"
             android:padding="10dp"
             android:textSize="13dp"
-            android:fontFamily="@font/poppinsregular"
-            android:id="@+id/edt_loginEmail">
-        </EditText>
+            tools:ignore="TextSizeCheck"></EditText>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:text="Password"
             android:fontFamily="@font/poppinsregular"
+            android:text="Password"
+            android:textColor="@color/primaryColor"
             android:textSize="13dp"
-            android:textStyle="bold">
-        </TextView>
+            android:textStyle="bold"
+            tools:ignore="TextSizeCheck"></TextView>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <EditText
+                android:id="@+id/edt_loginPassword"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="48dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edit_text_shape"
+                android:fontFamily="@font/poppinsregular"
                 android:hint="must be 8 chacracters"
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:textSize="13dp"
-                android:fontFamily="@font/poppinsregular"
-                android:id="@+id/edt_loginPassword">
-            </EditText>
+                tools:ignore="TextSizeCheck"></EditText>
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:id="@+id/img_passwordVisibility"
+                android:layout_width="15dp"
                 android:layout_height="wrap_content"
                 android:layout_alignEnd="@id/edt_loginPassword"
-                android:src="@drawable/invisible"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="20dp">
-            </ImageView>
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="25dp"
+                android:contentDescription="Password visibility toggle"
+                android:src="@drawable/invisible"></ImageView>
 
         </RelativeLayout>
 
@@ -122,17 +124,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/txt_toForgotPassword"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppinsregular"
+                android:textColor="@color/primaryColor"
                 android:text="Forgot password?"
                 android:textSize="13dp"
-                android:textStyle="bold">
+                android:textStyle="bold"
+                tools:ignore="TextSizeCheck">
 
             </TextView>
         </RelativeLayout>
@@ -145,30 +150,31 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/LinearLayout_Sign_up"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="-10dp"
         android:width="250dp"
         android:height="45dp"
-        android:layout_marginTop="-10dp"
         android:background="@drawable/button_shape"
         android:fontFamily="@font/poppinsregular"
         android:text="Login"
         android:textColor="@color/white"
         android:textSize="15dp"
-        android:textStyle="bold">
+        android:textStyle="bold"
+        tools:ignore="TextSizeCheck">
 
     </Button>
 
     <TextView
+        android:id="@+id/txt_orLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_loginLogIn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/btn_loginLogIn"
-        android:text="Or Login with"
         android:fontFamily="@font/poppinsregular"
+        android:text="Or Login with"
         android:textSize="13dp"
         android:textStyle="bold"
-        android:id="@+id/txt_orLogin">
-    </TextView>
+        tools:ignore="TextSizeCheck"></TextView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -182,8 +188,8 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:background="@drawable/buton_shape_black_border"
-            android:src="@drawable/facebook">
-        </ImageButton>
+            android:src="@drawable/facebook"
+            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
 
         <Space
             android:layout_width="0dp"
@@ -195,19 +201,20 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:background="@drawable/buton_shape_black_border"
-            android:src="@drawable/google">
-        </ImageButton>
+            android:src="@drawable/google"
+            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
         <Space
             android:layout_width="0dp"
             android:layout_height="1dp"
             android:layout_weight="1" >
         </Space>
+
         <ImageButton
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:background="@drawable/buton_shape_black_border"
-            android:src="@drawable/apple">
-        </ImageButton>
+            android:src="@drawable/twitter"
+            tools:ignore="SpeakableTextPresentCheck"></ImageButton>
 
     </LinearLayout>
 
@@ -228,7 +235,7 @@
             android:text="Don't have an account?"
             android:textSize="13dp"
             android:textStyle="bold"
-            ></TextView>
+            tools:ignore="TextSizeCheck"></TextView>
 
         <TextView
             android:id="@+id/txt_toSignUp"
@@ -240,7 +247,8 @@
             android:text="  Sign Up"
             android:textColor="#4081FE"
             android:textSize="13dp"
-            android:textStyle="bold"></TextView>
+            android:textStyle="bold"
+            tools:ignore="TextSizeCheck"></TextView>
     </LinearLayout>
 
 </RelativeLayout>

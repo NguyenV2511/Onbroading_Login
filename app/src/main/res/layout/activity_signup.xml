@@ -5,7 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,6 +37,7 @@
 
             </ImageView>
 
+
         </RelativeLayout>
 
         <TextView
@@ -60,7 +64,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppinsregular"
             android:text="User name"
-            android:textColor="@color/black"
+            android:textColor="@color/primaryColor"
             android:textSize="13dp"
             android:textStyle="bold"
             tools:ignore="TextSizeCheck"></TextView>
@@ -83,7 +87,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppinsregular"
             android:text="Email"
-            android:textColor="@color/black"
+            android:textColor="@color/primaryColor"
             android:textSize="13dp"
             android:textStyle="bold"
             tools:ignore="TextSizeCheck"></TextView>
@@ -106,7 +110,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppinsregular"
             android:text="Password"
-            android:textColor="@color/black"
+            android:textColor="@color/primaryColor"
             android:textSize="13dp"
             android:textStyle="bold"
             tools:ignore="TextSizeCheck"></TextView>
@@ -130,7 +134,7 @@
             android:layout_marginTop="10dp"
             android:fontFamily="@font/poppinsregular"
             android:text="Confirm password"
-            android:textColor="@color/black"
+            android:textColor="@color/primaryColor"
             android:textSize="13dp"
             android:textStyle="bold"
             tools:ignore="TextSizeCheck"></TextView>
@@ -219,7 +223,7 @@
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:background="@drawable/buton_shape_black_border"
-            android:src="@drawable/apple"
+            android:src="@drawable/twitter"
             tools:ignore="SpeakableTextPresentCheck"></ImageButton>
 
     </LinearLayout>
